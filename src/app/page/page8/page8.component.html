@@ -1,0 +1,51 @@
+<div class="header-action">
+  <button nz-button nzType="primary" (click)="openAddQuestion()" style="width: 120px; background: #3fdf62; border-color: #3fdf62">
+    เพิ่มข้อสอบ
+  </button>
+</div>
+
+<div *ngFor="let q of questions" class="question-box" style="margin-top: 20px">
+
+ <div class="question-header">
+    <nz-form-item>
+      <label class="field-label">
+        {{ q.question_no }} {{ q.question_text }}
+      </label>
+    </nz-form-item>
+
+    <button
+      nz-button
+      nzDanger
+      nzType="primary"
+      style="width: 80px; background: #e70e06; border-color: #e70e06; margin-right: 1450px" 
+      (click)="deleteQuestion(q.id)"
+    >
+      ลบ
+    </button>
+  </div>
+
+  <nz-radio-group>
+    <label nz-radio [nzValue]="1">
+      {{ q.answer1 }}
+    </label>
+
+    <br />
+
+    <label nz-radio [nzValue]="2">
+      {{ q.answer2 }}
+    </label>
+
+    <br />
+
+    <label nz-radio [nzValue]="3">
+      {{ q.answer3 }}
+    </label>
+
+    <br />
+
+    <label nz-radio [nzValue]="4">
+      {{ q.answer4 }}
+    </label>
+  </nz-radio-group>
+
+</div>

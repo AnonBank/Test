@@ -1,0 +1,15 @@
+.field-label {
+  display: inline-block;
+  width: 120px;
+  font-weight: 600;
+  margin-left: 350px;
+}
+
+nz-form-item {
+  margin-bottom: 14px;
+}
+
+.input-box {
+  width: 600px;
+  height: 32px;
+}

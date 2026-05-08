@@ -1,0 +1,100 @@
+<div class="header-action">
+  <button nz-button nzType="primary" (click)="openApprove(currentRow)">
+    อนุมัติ
+  </button>
+
+  &nbsp;
+
+  <button nz-button nzDanger (click)="openReject(currentRow)">
+    ไม่อนุมัติ
+  </button>
+</div>
+
+<br />
+
+<nz-table #tb [nzData]="listData" [nzBordered]="true">
+  <thead>
+    <tr>
+      <th style="width: 32px">
+        <label
+          nz-checkbox
+          [(ngModel)]="allChecked"
+          (ngModelChange)="checkAll($event)"
+        ></label>
+      </th>
+
+      <th>รายการ</th>
+      <th>เหตุผล</th>
+      <th>สถานะ</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of tb.data; let i = index">
+      <td>
+        <label
+          nz-checkbox
+          [(ngModel)]="item.checked"
+          (ngModelChange)="onItemChecked(item, $event)"
+          [nzDisabled]="item.status !== 1"
+        ></label>
+      </td>
+
+      <td>{{ item.document_id }}</td>
+
+      <td>{{ item.remark }}</td>
+
+      <td>
+        <nz-tag *ngIf="item.status == 1" nzColor="gold">รออนุมัติ</nz-tag>
+        <nz-tag *ngIf="item.status == 2" nzColor="green">อนุมัติ</nz-tag>
+        <nz-tag *ngIf="item.status == 3" nzColor="red">ไม่อนุมัติ</nz-tag>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<!-- approve -->
+<nz-modal
+  [(nzVisible)]="isApprove"
+  nzTitle="ยืนยันการอนุมัติ"
+  (nzOnCancel)="isApprove = false"
+  (nzOnOk)="saveApprove()"
+  nzCancelText="ยกเลิก"
+  nzOkText="อนุมัติ"
+>
+ <div *nzModalContent>
+      <div class="row-form align-top">
+    <label class="label-title">เหตุผล :</label>
+
+    <textarea
+      nz-input
+      rows="4"
+      class="input-remark"
+      [(ngModel)]="remark"
+    ></textarea>
+  </div>
+ </div>
+</nz-modal>
+
+<!-- reject -->
+<nz-modal
+  [(nzVisible)]="isReject"
+  nzTitle="ยืนยันการไม่อนุมัติ"
+  (nzOnCancel)="isReject = false"
+  (nzOnOk)="saveReject()"
+  nzCancelText="ยกเลิก"
+  nzOkText="ไม่อนุมัติ"
+>
+ <div *nzModalContent>
+      <div class="row-form align-top">
+    <label class="label-title">เหตุผล :</label>
+
+    <textarea
+      nz-input
+      rows="4"
+      class="input-remark"
+      [(ngModel)]="remark"
+    ></textarea>
+  </div>
+ </div>
+</nz-modal>

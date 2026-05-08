@@ -1,0 +1,43 @@
+.page-header{
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.header-action{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.row-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
+.label-title {
+  width: 90px;
+  font-weight: 500;
+}
+
+.input-half {
+  width: 180px;
+}
+
+.input-date {
+  width: 180px;
+}
+
+.input-address {
+  width: 430px;
+  resize: none;
+}
+
+.age-text {
+  min-width: 30px;
+  text-align: center;
+}

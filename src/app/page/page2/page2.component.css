@@ -1,0 +1,42 @@
+.page-center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f2f5;
+}
+
+.login-card {
+  width: 520px;
+  padding: 10px;
+}
+
+.row-form {
+  display: flex;
+  align-items: center;
+}
+
+.label-title {
+  width: 130px;
+  text-align: right;
+  margin-right: 15px;
+}
+
+.input-box {
+  width: 270px;
+  height: 32px;
+  margin-top: 10px;
+}
+
+.btn-main {
+  width: 170px;
+  height: 32px;
+  margin-top: 10px;
+  margin-left: 145px;
+}
+
+.link-text {
+  display: block;
+  margin-top: 10px;
+  margin-left: 145px;
+}

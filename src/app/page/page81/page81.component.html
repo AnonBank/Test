@@ -1,0 +1,55 @@
+<form nz-form [formGroup]="form">
+  <div nz-row [nzGutter]="16">
+    <div nz-col nzSpan="24">
+      <nz-form-item>
+        <label class="field-label">คำถาม</label>
+        <nz-form-control>
+          <input class="input-box" nz-input formControlName="question" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <label class="field-label">คำตอบ 1</label>
+        <nz-form-control>
+          <input class="input-box" nz-input formControlName="answer1" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <label class="field-label">คำตอบ 2</label>
+        <nz-form-control>
+          <input class="input-box" nz-input formControlName="answer2" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <label class="field-label">คำตอบ 3</label>
+        <nz-form-control>
+          <input class="input-box" nz-input formControlName="answer3" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <label class="field-label">คำตอบ 4</label>
+        <nz-form-control>
+          <input class="input-box" nz-input formControlName="answer4" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px">
+    <button
+      nz-button
+      nzType="primary"
+      (click)="save()"
+      style="width: 120px; background: #6cb5e6; border-color: #6cb5e6"
+    >
+      บันทึก
+    </button>
+
+    &nbsp;
+
+    <button nz-button nzType="primary" (click)="clear()" style="width: 120px; background: #e70e06; border-color: #e70e06">
+      ยกเลิก
+    </button>
+  </div>
+</form>

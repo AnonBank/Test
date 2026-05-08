@@ -1,0 +1,91 @@
+<div class="page-center">
+
+  <nz-card class="login-card">
+
+    <div class="row-form">
+      <label class="label-title">User</label>
+
+      <input
+        nz-input
+        class="input-box"
+        [(ngModel)]="loginData.user_name"
+      />
+    </div>
+
+    <div class="row-form">
+      <label class="label-title">Password</label>
+
+      <input
+        nz-input
+        type="password"
+        class="input-box"
+        [(ngModel)]="loginData.password"
+      />
+    </div>
+
+    <div class="btn-group">
+      <button
+        nz-button
+        nzType="primary"
+        class="btn-main"
+        (click)="login()"
+      >
+        ลงชื่อเข้าใช้งาน
+      </button>
+
+      <a class="link-text" (click)="showRegister()">
+        สมัครสมาชิก
+      </a>
+    </div>
+
+  </nz-card>
+
+</div>
+
+
+<nz-modal
+  [(nzVisible)]="isVisibleRegister"
+  (nzOnCancel)="closeRegister()"
+  (nzOnOk)="register()"
+  nzOkText="สมัครสมาชิก"
+  nzCancelText="ยกเลิก"
+  [nzWidth]="600"
+>
+
+  <div *nzModalContent>
+
+    <div class="row-form">
+      <label class="label-title">User</label>
+
+      <input
+        nz-input
+        class="input-box"
+        [(ngModel)]="registerData.user_name"
+      />
+    </div>
+
+    <div class="row-form">
+      <label class="label-title">Password</label>
+
+      <input
+        nz-input
+        type="password"
+        class="input-box"
+        [(ngModel)]="registerData.password"
+      />
+    </div>
+
+    <div class="row-form">
+      <label class="label-title">Confirm Password</label>
+
+      <input
+        nz-input
+        type="password"
+        class="input-box"
+        [(ngModel)]="registerData.confirmPassword"
+      />
+    </div>
+
+  </div>
+
+</nz-modal>

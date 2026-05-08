@@ -1,0 +1,9 @@
+.row-form {
+  display: flex;
+  align-items: center;
+}
+
+.input-box {
+  width: 90%;
+  height: 32px;
+}

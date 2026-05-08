@@ -1,0 +1,19 @@
+.label-title {
+  width: 90px;
+  font-weight: 500;
+}
+
+.align-top {
+  align-items: flex-start;
+}
+
+.row-form {
+  display: flex;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+.input-remark {
+  width: 430px;
+  resize: none;
+}

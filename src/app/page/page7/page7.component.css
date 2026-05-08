@@ -1,0 +1,16 @@
+.row-form {
+  display: flex;
+  align-items: center;
+}
+
+.input-box {
+  width: 90%;
+  height: 32px;
+}
+
+.qr-container {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: center;
+}

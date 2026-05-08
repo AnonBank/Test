@@ -1,0 +1,149 @@
+<header class="page-header">
+  <div class="header-action">
+    <button nz-button nzType="primary" (click)="showAdd()">Add</button>
+  </div>
+</header>
+
+<br /><br />
+
+<nz-table #basicTable [nzData]="listData">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>ชื่อ-สกุล</th>
+      <th>วันเกิด</th>
+      <th>อายุ</th>
+      <th>ที่อยู่</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of basicTable.data; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.first_name }} {{ item.last_name }}</td>
+      <td>{{ item.birthdate }}</td>
+      <td>{{ item.age }}</td>
+      <td>{{ item.address }}</td>
+      <td>
+        <button nz-button nzType="default" (click)="showView(item)">
+          View
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal
+  [(nzVisible)]="isVisibleAdd"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="saveData()"
+  nzOkText="บันทึก"
+  nzCancelText="ยกเลิก"
+  [nzWidth]="700"
+>
+  <div *nzModalContent>
+    <div class="row-form">
+      <label class="label-title">ชื่อ - สกุล</label>
+
+      <input nz-input class="input-half" [(ngModel)]="formData.first_name" />
+
+      <input nz-input class="input-half" [(ngModel)]="formData.last_name" />
+    </div>
+
+    <div class="row-form">
+      <label class="label-title">วันเกิด</label>
+
+      <input
+        nz-input
+        type="date"
+        class="input-date"
+        [(ngModel)]="formData.birthdate"
+        (change)="calculateAge()"
+      />
+    </div>
+
+    <div class="row-form">
+      <label class="label-title">อายุ</label>
+
+      <span class="age-text">{{ formData.age }}</span>
+      <span>ปี</span>
+    </div>
+
+    <div class="row-form align-top">
+      <label class="label-title">ที่อยู่</label>
+
+      <textarea
+        nz-input
+        rows="4"
+        class="input-address"
+        [(ngModel)]="formData.address"
+      ></textarea>
+    </div>
+  </div>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="isVisibleView"
+  (nzOnCancel)="closeView()"
+  (nzOnOk)="closeView()"
+  nzOkText="ปิด"
+  [nzCancelDisabled]="true"
+  [nzWidth]="700"
+>
+  <div *nzModalContent>
+
+    <!-- ชื่อ - สกุล -->
+    <div class="row-form">
+      <label class="label-title">ชื่อ - สกุล</label>
+
+      <input
+        nz-input
+        class="input-half"
+        [ngModel]="viewData.first_name"
+        disabled
+      />
+
+      <input
+        nz-input
+        class="input-half"
+        [ngModel]="viewData.last_name"
+        disabled
+      />
+    </div>
+
+    <!-- วันเกิด -->
+    <div class="row-form">
+      <label class="label-title">วันเกิด</label>
+
+      <input
+        nz-input
+        class="input-date"
+        [ngModel]="viewData.birthdate"
+        disabled
+      />
+    </div>
+
+    <!-- อายุ -->
+    <div class="row-form">
+      <label class="label-title">อายุ</label>
+
+      <span class="age-text">{{ viewData.age }}</span>
+      <span>ปี</span>
+    </div>
+
+    <!-- ที่อยู่ -->
+    <div class="row-form align-top">
+      <label class="label-title">ที่อยู่</label>
+
+      <textarea
+        nz-input
+        rows="4"
+        class="input-address"
+        [ngModel]="viewData.address"
+        disabled
+      ></textarea>
+    </div>
+
+  </div>
+</nz-modal>

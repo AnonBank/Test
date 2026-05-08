@@ -1,0 +1,22 @@
+<div style="max-width: 500px; margin: 20px auto">
+  <h3>Comment</h3>
+
+  <input
+    nz-input
+    placeholder="Type comment for Blend 285"
+    [(ngModel)]="commentText"
+    (keyup.enter)="addComment()"
+  />
+
+<div *ngFor="let c of comments; let i = index"
+     style="background:#f5f5f5; padding:12px; margin-bottom:10px; border-radius:10px;">
+  
+  <div style="font-size:12px; color:#888">
+    Comment {{ i + 1 }}
+  </div>
+
+  <div style="margin-top:4px" style="color:rgb(12, 12, 12)">
+    {{ c.text_name }}
+  </div>
+</div>
+</div>

@@ -1,0 +1,30 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 16px;
+}
+
+.card {
+  width: 100%;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 20px;
+}
+
+.btn-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 32px;
+  height: 90px;
+  padding: 0 40px;
+  border-radius: 16px;
+}
+
+.btn-reset {
+  border-radius: 12px;
+  margin-top: 20px;
+  font-size: 16px;
+}

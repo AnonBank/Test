@@ -1,0 +1,99 @@
+<form nz-form [formGroup]="form">
+  <div nz-row [nzGutter]="16">
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+          <label class="field-label">First Name</label>
+          <input nz-input formControlName="first_name" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <label class="field-label">Email</label>
+          <input nz-input formControlName="email" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <label class="field-label">Profile</label>
+          <input type="file" (change)="onFileChange($event)" />
+
+          <div *ngIf="profileBase64" style="margin-top: 10px">
+            <img [src]="profileBase64" width="80" />
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24">Occupation</nz-form-label>
+        <nz-form-control [nzSpan]="24">
+          <nz-select class="full-width" formControlName="occupation">
+            <nz-option
+              *ngFor="let o of occupations"
+              [nzValue]="o"
+              [nzLabel]="o"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <label class="field-label">Sex</label>
+
+          <nz-radio-group formControlName="sex">
+            <label nz-radio nzValue="Male">Male</label>
+            <label nz-radio nzValue="Female">Female</label>
+          </nz-radio-group>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-control>
+          <label class="field-label">Last Name</label>
+          <input nz-input formControlName="last_name" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <label class="field-label">Phone</label>
+          <input nz-input formControlName="phone" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <label class="field-label">Birth Day</label>
+          <input nz-input type="date" formControlName="birthdate" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px">
+    <button
+      nz-button
+      nzType="primary"
+      (click)="save()"
+      style="width: 120px; background: #52c41a; border-color: #52c41a"
+    >
+      Save
+    </button>
+
+    &nbsp;
+
+    <button
+      nz-button
+      nzType="primary"
+      style="width: 120px; background: #737572; border-color: #737572"
+      (click)="clear()"
+    >
+      Clear
+    </button>
+  </div>
+</form>

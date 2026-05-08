@@ -1,0 +1,52 @@
+<header class="page-header">
+  <div class="row-form">
+    <label class="label-title" style="margin-right: 10px">รหัสสินค้า</label>
+
+    <input
+      nz-input
+      class="input-box"
+      [(ngModel)]="barCodeData.code"
+      (ngModelChange)="formatInput()"
+      maxlength="19" 
+      pattern="[A-Z0-9\-]*"
+    />
+
+    <button
+      nz-button
+      nzType="primary"
+      style="margin-left: 10px"
+      (click)="add()"
+    >
+      Add
+    </button>
+  </div>
+</header>
+
+<br /><br />
+
+<nz-table #basicTable [nzData]="listData">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>รหัสสินค้า(16 หลัก)</th>
+      <th>บาร์โค้ดสินค้า</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of basicTable.data; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.barcode_id }}</td>
+      <td>
+        <img
+          [src]="'data:image/png;base64,' + item.barcode"
+          style="height: 60px"
+        />
+      </td>
+      <td>
+        <button nz-button nzType="primary" style="width: 120px; background: #e70e06; border-color: #e70e06" (click)="delete(item)">ลบ</button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
